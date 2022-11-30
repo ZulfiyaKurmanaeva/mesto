@@ -1,5 +1,5 @@
 .elements__image {
     width: 100%;
     padding-top: 50%;
-    
+    object-fit: cover;
 }

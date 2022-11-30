@@ -1,4 +1,8 @@
 .elements__item {
-   width: 100%;
-
-}
+   width: 282px;
+   height: 361;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   background-color: #FFF;
+   }

@@ -1,3 +1,6 @@
 .elements__caption {
-
+margin: auto;
+width: 246px;
+display: flex;
+justify-content: space-between;
 }

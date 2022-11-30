@@ -4,8 +4,9 @@
     display: grid;
     grid-template-columns: 1fr min-content;
     grid-template-rows: repeat(2, 1fr);
-    row-gap: 16px;
-    align-items: baseline;
+    row-gap: 10px;
+    align-content: flex-end;
+    align-items: flex-end;
     grid-template-areas:
         "profile__info_name profile__edit-button"
         "profile__info_about profile__info_about"

@@ -1,5 +1,6 @@
 .profile__info_about {
     grid-area: profile__info_about;
+    align-self: flex-start;
     color: #FFF;
     font-weight: 400;
     font-size: 18px;

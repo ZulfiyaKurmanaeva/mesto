@@ -1,6 +1,7 @@
 .elements__caption {
-margin: auto;
-width: 246px;
-display: flex;
-justify-content: space-between;
+    margin: 0 auto 30px;
+    width: 246px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
 }

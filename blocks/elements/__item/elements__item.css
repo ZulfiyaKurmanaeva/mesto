@@ -1,8 +1,6 @@
 .elements__item {
-   width: 282px;
-   height: 361;
+   height: 361px;
    border-radius: 10px;
-   display: flex;
-   flex-direction: column;
    background-color: #FFF;
-   }
+   position: relative;
+}

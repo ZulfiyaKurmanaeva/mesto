@@ -3,11 +3,28 @@
     margin-left: 30px;
     display: grid;
     grid-template-columns: 1fr min-content;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, min-content);
     row-gap: 10px;
     align-content: flex-end;
     align-items: flex-end;
     grid-template-areas:
         "profile__info_name profile__edit-button"
         "profile__info_about profile__info_about"
+}
+
+@media screen and (max-width: 768px) {
+    .profile__info {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: repeat(2, min-content);
+    row-gap: 10px;
+    justify-items: center;
+    align-content: flex-start;
+    align-items: flex-end;
+    grid-template-areas:
+        "profile__info_name profile__edit-button"
+        "profile__info_about profile__info_about"
+    }
 }

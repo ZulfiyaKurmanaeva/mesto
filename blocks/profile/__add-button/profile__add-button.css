@@ -5,3 +5,10 @@
     border-radius: 2px;
     display: flex;
 }
+
+@media screen and (max-width: 768px) {
+    .profile__add-button {
+    width: 80%;
+    margin: 36px auto;
+    }
+}

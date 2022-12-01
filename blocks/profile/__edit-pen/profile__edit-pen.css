@@ -4,3 +4,10 @@
     object-fit: cover;
     margin: auto;
 }
+
+@media screen and (max-width: 768px) {
+    .profile__edit-pen {
+        height: 7.5px;
+        width: 7.5px;
+    }
+}

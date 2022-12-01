@@ -10,3 +10,19 @@
    align-items: flex-start;
    margin: 0 auto;
 }
+
+@media screen and (max-width: 768px) {
+   .elements {
+      width: 100%;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 1fr);
+      grid-auto-flow: row;
+      box-sizing: border-box;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0 auto;
+   }
+
+}

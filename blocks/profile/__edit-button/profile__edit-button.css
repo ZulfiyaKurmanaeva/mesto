@@ -5,3 +5,11 @@
     display: flex;
 
 }
+
+@media screen and (max-width: 768px) {
+    .profile__edit-button {
+        width: 18px;
+        height: 18px;
+        
+    }
+}

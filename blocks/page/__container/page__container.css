@@ -1,12 +1,6 @@
 .page__container {
-    width: 70%;
-    box-sizing: border-box;
+    min-width: 320px;
+    max-width: 1280px;
     margin: 0 auto;
-}
-
-@media screen and (max-width: 768px) {
-    .page__container {
-        width: 100%;
-
-    }
+    box-sizing: border-box;
 }

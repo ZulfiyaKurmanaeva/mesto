@@ -1,9 +1,5 @@
 .elements__image {
-    object-fit: cover;
+    object-fit: contain;
     overflow: hidden;
     width: 100%;
-    padding-bottom: 50%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-
 }

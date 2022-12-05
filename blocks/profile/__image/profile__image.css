@@ -1,6 +1,5 @@
 .profile__image {
-    max-width: 120px;
-    max-height: 120px;
+    width: 120px;
     border-radius: 50%;
     object-fit: cover;
     margin: 0;
@@ -8,6 +7,6 @@
 
 @media screen and (max-width: 768px) {
     .profile__image {
-        margin: 0 auto;
+        margin: 0 auto 26px;
     }
 }

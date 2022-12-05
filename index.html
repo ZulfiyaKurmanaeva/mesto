@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
+    <script async src="./scripts/index.js"></script>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 
@@ -14,7 +15,6 @@
 
         <header class="header">
             <img class="header__logo" src="./images/Vector.png" alt="Логотип">
-            <hr class="header__liner">
         </header>
 
         <main class="content">
@@ -24,7 +24,7 @@
                     <img class="profile__image" src="./images/image.jpg" alt="Фото профиля">
                     <div class="profile__info">
                         <h1 class="profile__info_name">Жак-Ив Кусто</h1>
-                        <button class="profile__edit-button"></button>
+                        <button class="profile__edit-button" type="button"></button>
                         <p class="profile__info_about">Исследователь океана</p>
                     </div>
                 </div>
@@ -89,14 +89,14 @@
 
             </section>
 
-            <div class="popup">
-                <form class="popup__container" name="form">
+            <div class="popup popup__opened">
+                <div class="popup__container" name="form">
                     <button class="popup__close-button" type="button"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" class="popup__input popup__input_name" placeholder="">
-                    <input type="text" class="popup__input popup__input_about" placeholder="">
+                    <input type="text" class="popup__input popup__input_name" placeholder="Жак-Ив Кусто">
+                    <input type="text" class="popup__input popup__input_about" placeholder="Исследователь океана">
                     <button class="popup__save-button" type="submit">Сохранить</button>
-                </form>
+                </div>
             </div>
 
         </main>
@@ -104,7 +104,6 @@
             <p class="footer__copyright">&copy;&nbsp;2020&nbsp;Mesto&nbsp;Russia</p>
         </footer>
     </div>
-    <script src="./scripts/script.js"></script>
 </body>
 
 </html>

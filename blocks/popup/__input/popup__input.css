@@ -3,7 +3,10 @@
     margin: 0 auto 28px;
     padding: 0 0 10px 0;
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);        
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: 0;
+    border-style: none;
+    box-shadow: none;
 }
 
 @media screen and (max-width: 768px) {

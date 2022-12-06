@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 
-
 <body class="page">
     <div class="page__container">
 
@@ -90,12 +89,14 @@
             </section>
 
             <div class="popup" type="button">
-                <div class="popup__container" name="form">
+                <div class="popup__container">
                     <button class="popup__close-button" type="button"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" class="popup__input popup__input_name" placeholder="Жак-Ив Кусто">
-                    <input type="text" class="popup__input popup__input_about" placeholder="Исследователь океана">
+                    <form class="popup__form" name="form">
+                    <input type="text" class="popup__input popup__input_name" placeholder="" name="name">
+                    <input type="text" class="popup__input popup__input_about" placeholder="" name="about">
                     <button class="popup__save-button" type="submit">Сохранить</button>
+                    </form>
                 </div>
             </div>
 

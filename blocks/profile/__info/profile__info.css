@@ -20,6 +20,6 @@
         align-items: baseline;
         grid-template-areas:
             ". profile__info_name profile__info_name profile__edit-button"
-            ". profile__info_about"
+            ". profile__info_about";
     }
 }

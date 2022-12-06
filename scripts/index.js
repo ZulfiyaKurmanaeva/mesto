@@ -38,5 +38,3 @@ function saveForm(evt) {
 function closePopup() {
     popup.classList.remove('popup__opened');
 }
-
-profileForm.addEventListener('submit', openPopup);

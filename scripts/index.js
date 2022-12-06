@@ -6,7 +6,6 @@ let inputName = document.querySelector('name');
 let inputAbout = document.querySelector('about');
 let infoName = document.querySelector('.profile__info_name');
 let infoAbout = document.querySelector('.profile__info_about');
-let profileForm = document.querySelector('form')
 
 editButton.addEventListener('click', openPopup);
 saveButton.addEventListener('submit', saveForm);
@@ -36,5 +35,5 @@ function saveForm(evt) {
 }
 
 function closePopup() {
-    popup.classList.remove('popup__opened');
+    popup.classList.remove('popup_opened');
 }

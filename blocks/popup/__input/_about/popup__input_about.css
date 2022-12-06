@@ -1,1 +1,9 @@
-.popup__input_about {}
+.popup__input_about {
+    color: #000;
+    font-weight: 400;
+    font-size: 14px;
+    font-size: 17px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}

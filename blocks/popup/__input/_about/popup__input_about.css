@@ -1,9 +1,5 @@
 .popup__input_about {
-    color: #000;
-    font-weight: 400;
-    font-size: 14px;
-    font-size: 17px;
-    text-align: left;
-    margin: 0;
-    padding: 0;
+    margin: 30px 0 0;
+    padding-bottom: 9px;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
 }

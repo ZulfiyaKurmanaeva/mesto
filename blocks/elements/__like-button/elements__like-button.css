@@ -1,0 +1,20 @@
+.elements__like-button {
+   background-color: rgba(255, 255, 255, 0);
+   background-image: url('../../../images/cord.svg');
+   background-position: center;
+   background-repeat: no-repeat;
+   border-style: none;
+   width: 22px;
+   height: 19px;
+   margin-left: 10px;
+}
+
+.elements__like-button:hover {
+   opacity: .7;
+   cursor: pointer;
+}
+
+.elements__like-button:active {
+   background-image: url('../../../images/black_cord.svg');
+   opacity: 1;
+}

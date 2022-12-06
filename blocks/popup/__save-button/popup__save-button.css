@@ -8,14 +8,14 @@
     line-height: 22px;
     width: 358px;
     height: 50px;
-    margin: 20px auto 0;
+    margin: 46px auto 0;
 }
 
 @media screen and (max-width: 768px) {
     .popup__save-button {
         width: 238px;
         height: 46px;
-        margin: 18px auto 0;
+        margin: 40px auto 0;
         font-size: 14px;
         line-height: 17px;
     }

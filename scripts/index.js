@@ -2,13 +2,13 @@ const editButton = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
 const saveButton = document.querySelector('.popup__save-button');
 const closeButton = document.querySelector('.popup__close-button');
-let inputName = document.querySelector('name');
-let inputAbout = document.querySelector('about');
+let inputName = document.querySelector('#name');
+let inputAbout = document.querySelector('#about');
 let infoName = document.querySelector('.profile__info_name');
 let infoAbout = document.querySelector('.profile__info_about');
 
 editButton.addEventListener('click', openPopup);
-saveButton.addEventListener('submit', saveForm);
+saveButton.addEventListener('click', saveForm);
 closeButton.addEventListener('click', closePopup);
 
 
@@ -31,7 +31,7 @@ function saveForm(evt) {
     evt.preventDefault();
     infoName.textContent = inputName.value;
     infoAbout.textContent = inputAbout.value;
-    saveButton.addEventListener('click', closePopup);
+    closePopup();
 }
 
 function closePopup() {

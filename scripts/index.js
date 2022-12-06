@@ -4,8 +4,8 @@ const saveButton = document.querySelector('.popup__save-button');
 const closeButton = document.querySelector('.popup__close-button');
 let inputName = document.querySelector('#name');
 let inputAbout = document.querySelector('#about');
-let infoName = document.querySelector('.profile__info_name');
-let infoAbout = document.querySelector('.profile__info_about');
+let infoName = document.querySelector('.profile__info_type_name');
+let infoAbout = document.querySelector('.profile__info_type_about');
 
 editButton.addEventListener('click', openPopup);
 saveButton.addEventListener('click', saveForm);

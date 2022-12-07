@@ -12,7 +12,7 @@
 }
 
 .elements__like-button:hover {
-   opacity: .7;
+   opacity: .5;
    cursor: pointer;
 }
 

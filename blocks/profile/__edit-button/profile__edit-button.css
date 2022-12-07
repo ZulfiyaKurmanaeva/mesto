@@ -6,16 +6,18 @@
     background-image: url(../../../images/pen.svg);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 10px;
     align-self: flex-end;
 
 }
 
 @media screen and (max-width: 768px) {
     .profile__edit-button {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
         margin-top: 7px;
         margin-left: 5px;
+        background-size: 8px;
     }
 }
 

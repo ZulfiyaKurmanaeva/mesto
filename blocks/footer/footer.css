@@ -5,6 +5,12 @@
    flex-shrink: 0;
 }
 
+@media screen and (max-width: 1269px) {
+   .footer {
+      width: 89%;
+   }
+}
+
 @media screen and (max-width: 768px) {
    .footer {
       width: 89%;

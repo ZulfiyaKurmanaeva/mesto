@@ -1,8 +1,9 @@
 const editButton = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
+const saveButton = document.querySelector('.popup__form');
 const closeButton = document.querySelector('.popup__close-button');
-let inputName = document.querySelector('#name');
-let inputAbout = document.querySelector('#about');
+let inputName = document.querySelector('.popup__input_type_name');
+let inputAbout = document.querySelector('.popup__input_type_about');
 let infoName = document.querySelector('.profile__name');
 let infoAbout = document.querySelector('.profile__about');
 

@@ -13,7 +13,7 @@
 @media screen and (max-width: 1269px) {
    .elements {
       width: 89%;
-      justify-content: space-evenly;
+      justify-content: center;
    }
 }
 

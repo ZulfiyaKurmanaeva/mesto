@@ -12,12 +12,13 @@
 @media screen and (max-width: 768px) {
     .profile__info {
         width: 100%;
+        max-width: 282px;
         margin: 0 auto;
-        padding-left: 10px;
+        justify-items: center;
         gap: 10px;
         align-items: baseline;
         grid-template-areas:
-            ". profile__name . profile__edit-button"
-            ". profile__about";
+            "profile__name profile__edit-button"
+            "profile__about .";
     }
 }

@@ -19,7 +19,6 @@
 
 @media screen and (max-width: 425px) {
    .elements {
-      width: 89%;
       row-gap: 16px;
       grid-template-columns: 282px;
       justify-content: center;

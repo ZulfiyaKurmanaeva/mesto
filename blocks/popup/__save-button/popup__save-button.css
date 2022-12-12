@@ -8,20 +8,21 @@
     line-height: 22px;
     width: 358px;
     height: 50px;
-    margin: 46px auto 0;
+    margin: 44px auto 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
     .popup__save-button {
         width: 238px;
         height: 46px;
-        margin: 40px auto 0;
         font-size: 14px;
         line-height: 17px;
     }
 }
 
 .popup__save-button:hover {
-    cursor: pointer;
     opacity: .8;
 }

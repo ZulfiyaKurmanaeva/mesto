@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesto</title>
-    <script async src="./scripts/index.js"></script>
+    <title>Любимые места</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
 
-    <div class="popup" type="button">
+    <div class="popup">
         <div class="popup__container">
-            <button class="popup__close-button" type="button"></button>
-            <form class="popup__form" id="form">
+            <button class="popup__close-button" type="button" aria-label="close"></button>
+            <form class="popup__form" name="popupForm" action="#" method="get">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" class="popup__input popup__input_name" id="name" value="">
-                <input type="text" class="popup__input popup__input_about" id="about" value="">
+                <input type="text" class="popup__input popup__input_type_name" name="name" value="">
+                <input type="text" class="popup__input popup__input_type_about" name="about" value="">
                 <button class="popup__save-button" type="submit">Сохранить</button>
             </form>
         </div>
@@ -25,7 +24,7 @@
 
     <div class="page__container">
         <header class="header">
-            <img class="header__logo" src="./images/Vector.png" alt="Логотип">
+            <img class="header__logo" src="./images/Vector.svg" alt="Логотип">
         </header>
 
         <main class="content">
@@ -34,12 +33,12 @@
                 <div class="profile__avatar">
                     <img class="profile__image" src="./images/image.jpg" alt="Аватар">
                     <div class="profile__info">
-                        <h1 class="profile__info_name">Жак-Ив Кусто</h1>
-                        <button class="profile__edit-button" type="button"></button>
-                        <p class="profile__info_about">Исследователь океана</p>
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button" type="button" aria-label="edit"></button>
+                        <p class="profile__about">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-button" type="submit"></button>
+                <button class="profile__add-button" type="button" aria-label="add"></button>
             </section>
 
             <section class="elements">
@@ -72,7 +71,7 @@
                 </div>
 
                 <div class="elements__item">
-                    <img class="elements__image" src="./images/Cappadocia, Turkey.jpg" alt="Каппадокия">
+                    <img class="elements__image" src="./images/Cappadocia.jpg" alt="Каппадокия">
 
                     <div class="elements__caption">
                         <h2 class="elements__title">Каппадокия, Турция</h2>
@@ -81,7 +80,7 @@
                 </div>
 
                 <div class="elements__item">
-                    <img class="elements__image" src="./images/Death Valley, CA, USA.jpg" alt="Долина Смерти">
+                    <img class="elements__image" src="./images/DeathValley.jpg" alt="Долина Смерти">
 
                     <div class="elements__caption">
                         <h2 class="elements__title">Долина Смерти, США</h2>
@@ -90,7 +89,7 @@
                 </div>
 
                 <div class="elements__item">
-                    <img class="elements__image" src="./images/Madeira Islands, Portugal.jpg" alt="Остров Мадейра">
+                    <img class="elements__image" src="./images/MadeiraIslands.jpg" alt="Остров Мадейра">
 
                     <div class="elements__caption">
                         <h2 class="elements__title">Остров Мадейра, Португалия</h2>
@@ -105,6 +104,7 @@
             <p class="footer__copyright">&copy;&nbsp;2020&nbsp;Mesto&nbsp;Russia</p>
         </footer>
     </div>
+    <script async src="./scripts/index.js"></script>
 </body>
 
 </html>

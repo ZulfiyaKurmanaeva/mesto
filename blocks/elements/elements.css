@@ -10,14 +10,17 @@
    margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1269px) {
    .elements {
       width: 89%;
-      display: grid;
-      gap: 16px;
-      grid-template-columns: 1fr;
       justify-content: center;
+   }
+}
 
+@media screen and (max-width: 425px) {
+   .elements {
+      row-gap: 16px;
+      grid-template-columns: 282px;      
    }
 
 }

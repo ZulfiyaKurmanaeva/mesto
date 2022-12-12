@@ -9,16 +9,19 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: 22px;
+    margin-left: 20px;
 }
+
 
 @media screen and (max-width: 768px) {
     .profile__add-button {
         width: 282px;
         margin: 36px auto 0;
+        background-size: 16px;
     }
 }
 
 .profile__add-button:hover {
     cursor: pointer;
-    opacity: .7;
+    opacity: .6;
 }

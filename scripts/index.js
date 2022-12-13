@@ -22,68 +22,92 @@ addButton.addEventListener('click', openPopup);
 
 
 //popup.addEventListener('click', function (event) {
-  //  if (!event.defaultPrevented) {
-   //     closePopup();
-   // }
+//  if (!event.defaultPrevented) {
+//     closePopup();
+// }
 //})
 //document.querySelector('.popup__container').addEventListener('click', function (event) {
-   // event.preventDefault();
+// event.preventDefault();
 //})
 
 function openPopup() {
-    popup.classList.add('popup_opened');
-    inputName.value = infoName.textContent;
-    inputAbout.value = infoAbout.textContent;
+  popup.classList.add('popup_opened');
+  inputName.value = infoName.textContent;
+  inputAbout.value = infoAbout.textContent;
 }
 
 function saveForm(evt) {
-    evt.preventDefault();
-    infoName.textContent = inputName.value;
-    infoAbout.textContent = inputAbout.value;
-    closePopup();
+  evt.preventDefault();
+  infoName.textContent = inputName.value;
+  infoAbout.textContent = inputAbout.value;
+  closePopup();
 }
 
 function closePopup() {
-    popup.classList.remove('popup_opened');
+  popup.classList.remove('popup_opened');
 }
 
-const elementsTemplate = document.querySelector('#elementsTemplate');
-const elementsTemplate = document.querySelector('#elementsTemplate').content; 
-const onlineTemplate = document.querySelector('.onlineTemplate');
+//const elementsTemplate = document.querySelector('#elementsTemplate');
+//const elementsTemplate = document.querySelector('#elementsTemplate').content;
+//const onlineTemplate = document.querySelector('.onlineTemplate');
 
 // клонируем содержимое тега template
-const newElement = elementsTemplate.querySelector('.elementsTemplate').cloneNode(true);
+//const newElement = elementsTemplate.querySelector('.elementsTemplate').cloneNode(true);
 
 // наполняем содержимым
-newElement.querySelector('.elements__image').src = 'tinyurl.com/v4pfzwy';
-newElement.querySelector('.elements__title').textContent = 'Дюк Корморант';
+//newElement.querySelector('.elements__image').src = 'tinyurl.com/v4pfzwy';
+//newElement.querySelector('.elements__title').textContent = 'Дюк Корморант';
 
 // отображаем на странице
-onlineTemplate.append(newElement); 
+//onlineTemplate.append(newElement);
+
+
+
+const elementsContainer = document.querySelector('.elements');
+const newCard = (taskName) => {
+  const template = document.querySelector('#elementsTemplate')
+  const elementsItem = template.content.querySelector('.elements__item').cloneNode(true);
+  elementsItem.querySelector('.elements__title').textContent = elementsTitle;
+  elementsItem.querySelector('.elements__image').src = elementsLink;
+
+
+  elementsItem.append(elementsImage, elementsCaption, elementsTitle, elementsLikeButton)
+  return elementsItem;
+}
+
+const elementsTodo = (ElementTitle) => {
+  elementsContainer.append(newElement(ElementTitle))
+}
+
+initialCards.forEach((title) => {
+  elementsTodo(title);
+})
+
+//task = elementsItem
 
 const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ]; 
+  {
+    elementsTitle: 'Архыз',
+    elementsLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    elementsTitle: 'Челябинская область',
+    elementsLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    elementsTitle: 'Иваново',
+    elementsLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    elementsTitle: 'Камчатка',
+    elementsLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    elementsTitle: 'Холмогорский район',
+    elementsLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    elementsTitle: 'Байкал',
+    elementsLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+]; 

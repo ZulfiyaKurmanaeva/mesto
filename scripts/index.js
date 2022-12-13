@@ -47,6 +47,19 @@ function closePopup() {
     popup.classList.remove('popup_opened');
 }
 
+const elementsTemplate = document.querySelector('#elementsTemplate');
+const elementsTemplate = document.querySelector('#elementsTemplate').content; 
+const onlineTemplate = document.querySelector('.onlineTemplate');
+
+// клонируем содержимое тега template
+const newElement = elementsTemplate.querySelector('.elementsTemplate').cloneNode(true);
+
+// наполняем содержимым
+newElement.querySelector('.elements__image').src = 'tinyurl.com/v4pfzwy';
+newElement.querySelector('.elements__title').textContent = 'Дюк Корморант';
+
+// отображаем на странице
+onlineTemplate.append(newElement); 
 
 const initialCards = [
     {

@@ -31,37 +31,42 @@ const saveButton = document.querySelector('.popup__form');
 const closeButton = document.querySelector('.popup__close-button');
 const addButton = document.querySelector('.profile__add-button');
 
+const inputName = document.querySelector('.popup__input_type_name');
+const inputAbout = document.querySelector('.popup__input_type_about');
+const infoName = document.querySelector('.profile__name');
+const infoAbout = document.querySelector('.profile__about');
 
-let inputName = document.querySelector('.popup__input_type_name');
-let inputAbout = document.querySelector('.popup__input_type_about');
-let infoName = document.querySelector('.profile__name');
-let infoAbout = document.querySelector('.profile__about');
+const elementsContainer = document.querySelector('.elements');
+const elementsTemplate = document.querySelector('#elementsTemplate');
+
+const inputElementsTitle = document.querySelector('.popup__input_type_ElementsTitle');
+const inputElementsLink = document.querySelector('.popup__input_type_ElementsLink');
+const elementsTitle = document.querySelector('.elements__title');
+const elementsLink = document.querySelector('.elements__link');
 
 
-
-editButton.addEventListener('click', openPopup);
-saveButton.addEventListener('submit', saveForm);
+editProfileButton.addEventListener('click', openPopupProfile);
+editElementsButton.addEventListener('click', openPopupElements);
+saveProfileButton.addEventListener('submit', saveProfileForm);
+saveProfileButton.addEventListener('submit', saveProfileForm);
 closeButton.addEventListener('click', closePopup);
 addButton.addEventListener('click', openPopup);
 
-// initialCards.unshift(...items) - добавляет элемент в начало строки
-
-//popup.addEventListener('click', function (event) {
-//  if (!event.defaultPrevented) {
-//     closePopup();
-// }
-//})
-//document.querySelector('.popup__container').addEventListener('click', function (event) {
-// event.preventDefault();
-//})
-
 function openPopup() {
-  popup.classList.add('popup_opened');
-  inputName.value = infoName.textContent;
-  inputAbout.value = infoAbout.textContent;
+  popupEditProfile.classList.add('popup_opened');
+  popupAddElement.classList.add('popup_opened');
+  popupOpenImage.classList.add('popup_opened');
 }
 
-function saveForm(evt) {
+function openPopupProfile() {
+  evt.preventDefault();
+inputName.value = infoName.textContent;
+inputAbout.value = infoAbout.textContent;
+openPopup();
+}
+
+
+function saveFormProfile(evt) {
   evt.preventDefault();
   infoName.textContent = inputName.value;
   infoAbout.textContent = inputAbout.value;
@@ -71,29 +76,6 @@ function saveForm(evt) {
 function closePopup() {
   popup.classList.remove('popup_opened');
 }
-
-//const elementsTemplate = document.querySelector('#elementsTemplate');
-//const elementsTemplate = document.querySelector('#elementsTemplate').content;
-//const onlineTemplate = document.querySelector('.onlineTemplate');
-
-// клонируем содержимое тега template
-//const newElement = elementsTemplate.querySelector('.elementsTemplate').cloneNode(true);
-
-// наполняем содержимым
-//newElement.querySelector('.elements__image').src = 'tinyurl.com/v4pfzwy';
-//newElement.querySelector('.elements__title').textContent = 'Дюк Корморант';
-
-// отображаем на странице
-//onlineTemplate.append(newElement);
-
-
-const elementsContainer = document.querySelector('.elements');
-//const form
-const inputElementsTitle = document.querySelector('.popup__input_type_ElementsTitle');
-const inputElementsLink = document.querySelector('.popup__input_type_ElementsLink');
-//const infoElementsTitle = document.querySelector('.elements__title');
-//const infoElementsLink = document.querySelector('.elements__link');
-const elementsTemplate = document.querySelector('#elementsTemplate');
 
 function createItem(elementsTitle, elementsLink) {
   const elementsItem = elementsTemplate.content.querySelector('.elements__item').cloneNode(true);
@@ -109,7 +91,7 @@ function createItem(elementsTitle, elementsLink) {
   })
 
   elementsItem.querySelector('.elements__link').addEventListener('click', function(evt) {
-    openPopup(openPopupImage);
+    openPopup(popupOpenImage);
     PopupImage.src = evt.target.src;
     PopupImage.alt = evt.target.alt;
     PopupImageTitle.textContent = elementsTitle;
@@ -124,3 +106,5 @@ function elementsAdd(evt) {
   elementsItem.prepend(createItem(inputElementsLink.value, inputElementsLink.value));
   closePopup(popupAdd);
 }
+
+// initialCards.unshift(...items) - добавляет элемент в начало строки

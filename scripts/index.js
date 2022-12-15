@@ -1,3 +1,5 @@
+// cards
+
 const initialCards = [
   {
     elementsTitle: 'Архыз',
@@ -25,57 +27,87 @@ const initialCards = [
   }
 ];
 
-const editButton = document.querySelector('.profile__edit-button');
-const popup = document.querySelector('.popup');
-const saveButton = document.querySelector('.popup__form');
+//buttons
+const editProfileButton = document.querySelector('.profile__edit-button');
+const addElementsButton = document.querySelector('.profile__add-button');
+const saveProfileButton = document.querySelector('.popup__profile-form');
+const saveElementsButton = document.querySelector('.popup__element-form');
 const closeButton = document.querySelector('.popup__close-button');
-const addButton = document.querySelector('.profile__add-button');
 
+//popup
+const popup = document.querySelector('.popup');
+
+//profile
 const inputName = document.querySelector('.popup__input_type_name');
 const inputAbout = document.querySelector('.popup__input_type_about');
 const infoName = document.querySelector('.profile__name');
 const infoAbout = document.querySelector('.profile__about');
 
-const elementsContainer = document.querySelector('.elements');
-const elementsTemplate = document.querySelector('#elementsTemplate');
-
+//Elements
 const inputElementsTitle = document.querySelector('.popup__input_type_ElementsTitle');
 const inputElementsLink = document.querySelector('.popup__input_type_ElementsLink');
 const elementsTitle = document.querySelector('.elements__title');
 const elementsLink = document.querySelector('.elements__link');
 
+//container
+const elementsContainer = document.querySelector('.elements');
+const elementsTemplate = document.querySelector('#elementsTemplate');
 
+//popup image
+const popupImg = document.querySelector('.popup__picture');
+const popupImgTitle = document.querySelector('.popup__picture-title');
+
+//EventListener
 editProfileButton.addEventListener('click', openPopupProfile);
-editElementsButton.addEventListener('click', openPopupElements);
+addElementsButton.addEventListener('click', openPopupElements);
 saveProfileButton.addEventListener('submit', saveProfileForm);
-saveProfileButton.addEventListener('submit', saveProfileForm);
+saveElementsButton.addEventListener('submit', saveProfileForm);
 closeButton.addEventListener('click', closePopup);
-addButton.addEventListener('click', openPopup);
 
+//popup
 function openPopup() {
-  popupEditProfile.classList.add('popup_opened');
-  popupAddElement.classList.add('popup_opened');
-  popupOpenImage.classList.add('popup_opened');
+  popup.classList.add('popup_opened');  
 }
 
+function closePopup() {
+  popup.classList.remove('popup_opened');
+}
+
+//profile
 function openPopupProfile() {
   evt.preventDefault();
-inputName.value = infoName.textContent;
-inputAbout.value = infoAbout.textContent;
-openPopup();
+ inputName.value = infoName.textContent;
+ inputAbout.value = infoAbout.textContent;
+ openPopup();
 }
 
-
-function saveFormProfile(evt) {
+function saveProfileForm(evt) {
   evt.preventDefault();
   infoName.textContent = inputName.value;
   infoAbout.textContent = inputAbout.value;
   closePopup();
 }
 
-function closePopup() {
-  popup.classList.remove('popup_opened');
-}
+function 
+btnSaveAddingPicture.addEventListener('click', (e) => {
+  e.preventDefault()
+  const link = elementLink.value;
+  const name = elementName.value;
+  createCard(name, link);
+  // elementLink.value = "";
+  // elementName.value = "";
+  closePopup(formAddPicture);
+  formAddPicture.reset();
+})
+
+
+
+
+/*function elementsAdd(evt) {
+  evt.preventDefault();
+  elementsItem.prepend(createItem(inputElementsLink.value, inputElementsLink.value));
+  closePopup(popupAdd);
+}*/
 
 function createItem(elementsTitle, elementsLink) {
   const elementsItem = elementsTemplate.content.querySelector('.elements__item').cloneNode(true);
@@ -101,10 +133,5 @@ return elementsItem;
   
 elementsContainer.append(...initialCards.map(createItem));
 
-function elementsAdd(evt) {
-  evt.preventDefault();
-  elementsItem.prepend(createItem(inputElementsLink.value, inputElementsLink.value));
-  closePopup(popupAdd);
-}
 
 // initialCards.unshift(...items) - добавляет элемент в начало строки

@@ -99,10 +99,28 @@ function createItem(elementsTitle, elementsLink) {
   const elementsItem = elementsTemplate.content.querySelector('.elements__item').cloneNode(true);
   elementsItem.querySelector('.elements__title').textContent = elementsTitle;
   elementsItem.querySelector('.elements__link').src = elementsLink;
-  elementsItem.querySelector('.elements__link').src = elementsLink;
+  elementsItem.querySelector('.elements__link').alt = `${elementsTitle}`;
+  elementsItem.querySelector('.elements__like-button').addEventListener('click', function(evt) {
+    evt.target.classList.toggle('.elements__like-button_active');    
+  })
 
-  return elementsItem;
-};
-elementsContainer.append(...initialCards.map(newCard));
+  elementsItem.querySelector ('.elements__remove').addEventListener('click', function(evt) {
+    evt.target.classList.toggle.remove();
+  })
 
+  elementsItem.querySelector('.elements__link').addEventListener('click', function(evt) {
+    openPopup(openPopupImage);
+    PopupImage.src = evt.target.src;
+    PopupImage.alt = evt.target.alt;
+    PopupImageTitle.textContent = elementsTitle;
+  })
+return elementsItem;
+} 
+  
+elementsContainer.append(...initialCards.map(createItem));
 
+function elementsAdd(evt) {
+  evt.preventDefault();
+  elementsItem.prepend(createItem(inputElementsLink.value, inputElementsLink.value));
+  closePopup(popupAdd);
+}

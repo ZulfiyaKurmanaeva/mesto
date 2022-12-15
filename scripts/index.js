@@ -23,7 +23,7 @@ const initialCards = [
     elementsTitle: 'Байкал',
     elementsLink: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-]; 
+];
 
 const editButton = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
@@ -37,10 +37,7 @@ let inputAbout = document.querySelector('.popup__input_type_about');
 let infoName = document.querySelector('.profile__name');
 let infoAbout = document.querySelector('.profile__about');
 
-let inputElementTitle = document.querySelector('.popup__input_type_ElementTitle');
-let inputElementLink = document.querySelector('.popup__input_type_ElementLink');
-let infoElementTitle = document.querySelector('.elements__title');
-//let ElementLink = ;
+
 
 editButton.addEventListener('click', openPopup);
 saveButton.addEventListener('submit', saveForm);
@@ -91,24 +88,21 @@ function closePopup() {
 
 
 const elementsContainer = document.querySelector('.elements');
+//const form
+const inputElementsTitle = document.querySelector('.popup__input_type_ElementsTitle');
+const inputElementsLink = document.querySelector('.popup__input_type_ElementsLink');
+//const infoElementsTitle = document.querySelector('.elements__title');
+//const infoElementsLink = document.querySelector('.elements__link');
 const elementsTemplate = document.querySelector('#elementsTemplate');
-const elementsTemplate = document.querySelector('#elementsTemplate').content;
-const elementsItem = elementsTemplate.querySelector('.elements__item').cloneNode(true);;
+
+function createItem(elementsTitle, elementsLink) {
+  const elementsItem = elementsTemplate.content.querySelector('.elements__item').cloneNode(true);
   elementsItem.querySelector('.elements__title').textContent = elementsTitle;
-  elementsItem.querySelector('.elements__image').src = elementsLink;
+  elementsItem.querySelector('.elements__link').src = elementsLink;
+  elementsItem.querySelector('.elements__link').src = elementsLink;
 
-
-  elementsItem.append(elementsImage, elementsCaption, elementsTitle,)
   return elementsItem;
+};
+elementsContainer.append(...initialCards.map(newCard));
 
-
-const elementsTodo = (ElementTitle) => {
-  elementsContainer.append(newElement(ElementTitle))
-}
-
-initialCards.forEach((title) => {
-  elementsTodo(title);
-})
-
-//task = elementsItem
 

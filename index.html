@@ -10,29 +10,40 @@
 
 <body class="page">
 
-    <div class="popup">
+    <div class="popup popup_type_add-elements">
         <div class="popup__container">
             <button class="popup__close-button" type="button" aria-label="close"></button>
             <form class="popup__form" name="popupForm" action="#" method="get">
                 <h2 class="popup__title">Новое место</h2>
-                <input type="text" class="popup__input popup__input_type_ElementTitle" name="ElementTitle" value="">
-                <input type="url" class="popup__input popup__input_type_ElementLink" name="ElementLink" value="">
-                <button class="popup__save-button" type="submit">Создать</button>
+                <input type="text" class="popup__input popup__input_type_element-title" name="title" value="">
+                <input type="url" class="popup__input popup__input_type_element-link" name="link" value="">
+                <button class="popup__save popup__save_type_profile" type="submit">Создать</button>
             </form>
         </div>
     </div>
 
-    <div class="popup">
+    <div class="popup popup_type_edit-profile">
         <div class="popup__container">
             <button class="popup__close-button" type="button" aria-label="close"></button>
             <form class="popup__form" name="popupForm" action="#" method="get">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <input type="text" class="popup__input popup__input_type_name" name="name" value="">
                 <input type="text" class="popup__input popup__input_type_about" name="about" value="">
-                <button class="popup__save-button" type="submit">Сохранить</button>
+                <button class="popup__save popup__save_type_element" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
+
+    <div class="popup popup_type_big-picture">
+        <figure class="popup__picture-container">
+            <button class="popup__close-button" type="button"></button>
+            <img class="popup__picture" src="#" alt="">
+            <figcaption>
+                <h2 class="popup__picture-caption"></h2>
+            </figcaption>
+        </figure>
+    </div>
+
 
 
     <div class="page__container">
@@ -57,7 +68,8 @@
             <section class="elements">
                 <template id="elementsTemplate">
                     <div class="elements__item">
-                        <img class="elements__link">
+                        <button class="elements__delete-button" type="button"></button>
+                        <img class="elements__link" src="#" alt="">
                         <div class="elements__caption">
                             <h2 class="elements__title"></h2>
                             <button class="elements__like-button" type="button"></button>

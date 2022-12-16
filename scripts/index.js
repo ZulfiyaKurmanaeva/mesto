@@ -49,12 +49,14 @@ const profileAbout = document.querySelector('.profile__about');
 //Elements
 const inputElementTitle = document.querySelector('.popup__input_type_element-title');
 const inputElementLink = document.querySelector('.popup__input_type_element-link');
-//const elementTitle = document.querySelector('.elements__title');
-//const elementLink = document.querySelector('.elements__link');
+const elementsTitle = document.querySelector('.elements__title');
+const elementsLink = document.querySelector('.elements__link');
 
 //container
 const elementsContainer = document.querySelector('.elements');
 const elementsTemplate = document.querySelector('#elementsTemplate');
+const elementsLikeBtn = elementsItem.querySelector('.elements__like-button');
+const elementsDelete = elementsItem.querySelector('.elements__delete-button');
 
 //popup image
 const bigPicture = document.querySelector('.popup__picture');
@@ -72,9 +74,9 @@ closeButton.addEventListener('click', () => {
 
 //edit profile
 editProfileButton.addEventListener('click', () => {
-  inputName.value = infoName.textContent;
-  inputAbout.value = infoAbout.textContent;
-  openPopup(popupEditProfile)
+  openPopup(popupEditProfile);
+  inputName.value = profileName.textContent;
+  inputAbout.value = profileAbout.textContent;  
 });
 
 //save profile
@@ -88,59 +90,52 @@ saveProfileButton.addEventListener('submit', (evt) => {
 //edit/add elements
 addElementsButton.addEventListener('click', () => {
   openPopup(popupAddElements)
+  inputElementTitle.value = elementsTitle.textContent;
+  inputElementLink.value = elementsLink.src; 
 });
 
 
-// add pictures
-saveElementsButton.addEventListener('click', (evt) => {
-  evt.preventDefault()
-  const elementsLink = inputElementLink.value;
-  const name = elementName.value;
-  createCard(name, link);
-  // elementLink.value = "";
-  // elementName.value = "";
-  closePopup(formAddPicture);
-  formAddPicture.reset();
-})
+//save elements
+saveElementsButton.addEventListener('click', () => {
+createItem(elementsTitle, elementsLink);
+evt.preventDefault();
+});
 
-
-//add pictures
-function createItem(imgTitle, imgLink) {
-  evt.preventDefault();
-  const elementsItem = elementsTemplate.content.querySelector('.elements__item').cloneNode(true);
-  const elementsLink = elementsItem.querySelector('.elements__link');
-  const elementsTitle = elementsItem.querySelector('.elements__title');
-  const elementsLikeBtn = elementsItem.querySelector('.elements__like-button');
-  const elementsDelete = elementsItem.querySelector('.elements__delete-button');
-
-  elementsLink.src = imgLink;
-  elementsTitle.textContent = imgTitle;
-  elementsLink.alt = `${elementsTitle}`;
-
-  elementsLink.addEventListener('click', () => openBigPicture(imgTitle, imgLink));
-  elementsLikeBtn.addEventListener('click', () => {
-    elementsLikeBtn.classList.toggle('.elements__like-button_active')
-  });
-
-  elementsDelete.addEventListener('click', deleteElement);
+//create element
+function createItem(elementsTitle, elementsLink) {
+const elementsItem = elementsTemplate.content.querySelector('.elements__item').cloneNode(true);
+  elementsTitle.textContent = inputElementTitle.value;
+  elementsLink.src = inputElementLink.value;
+  elementsLink.alt = `${elementsTitle}`; 
   elementsContainer.prepend(elementsItem);
-}
+  return elementsItem;
+};
 
 //add template elements
 elementsContainer.append(...initialCards.map(createItem));
 
 //open big picture
-function openBigPicture(imgTitle, imgLink) {
-  bigPicture.src = imgLink;
-  bigPictureCaption.textContent = imgTitle;
-  bigPicture.alt = imgTitle;
-  openPopup(openBigPicture)
-}
+elementsLink.addEventListener('click', () => {
+  openBigPicture(imgTitle, imgLink);
+});
+
+ function openBigPicture(imgTitle, imgLink) {
+  bigPicture.src = elementsLink;
+  bigPictureCaption.textContent = elementsTitle;
+  bigPicture.alt = elementsTitle;
+  openPopup(openBigPicture);
+};
+
+// likes
+elementsLikeBtn.addEventListener('click', () => {
+  elementsLikeBtn.classList.toggle('.elements__like-button_active')
+});
 
 // delete picture
-function deleteElement(evt) {
-  evt.target.closest('.elements__item').remove()
-}
+elementsDelete.addEventListener('click', () => {
+  evt.preventDefault();
+  evt.target.closest('.elements__item').remove();
+});
 
 
 //initialCards.forEach(({ name, link }) => {

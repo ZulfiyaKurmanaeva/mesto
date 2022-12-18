@@ -1,6 +1,6 @@
 .elements__like-button {
    background-color: rgba(255, 255, 255, 0);
-   background-image: url('../../../images/cord.svg');
+   background-image: url('../../../images/like.svg');
    background-position: center;
    background-repeat: no-repeat;
    background-size: 22px;
@@ -16,7 +16,7 @@
    cursor: pointer;
 }
 
-.elements__like-button:active {
-   background-image: url('../../../images/black_cord.svg');
+.elements__like-button_active {
+   background-image: url('../../../images/activeLike.svg');
    opacity: 1;
 }

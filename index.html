@@ -16,9 +16,9 @@
                 aria-label="close"></button>
             <h2 class="popup__title">Новое место</h2>
             <input type="text" class="popup__input popup__input_type_elements-title" placeholder="Название" value=""
-                name="title">
-            <input type="text" class="popup__input popup__input_type_elements-link" placeholder="Ссылка на картинку"
-                value="" name="link">
+                name="title" required>
+            <input type="url" class="popup__input popup__input_type_elements-link" placeholder="Ссылка на картинку"
+                value="" name="link" required>
             <button class="popup__save-button popup__save-button_type_element" type="submit">Создать</button>
         </div>
     </form>
@@ -28,8 +28,8 @@
             <button class="popup__close-button popup__close-button_type_profile" type="button"
                 aria-label="close button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input type="text" class="popup__input popup__input_type_name" value="">
-            <input type="text" class="popup__input popup__input_type_about" value="">
+            <input type="text" class="popup__input popup__input_type_name" value="" required>
+            <input type="text" class="popup__input popup__input_type_about" value="" required>
             <button class="popup__save-button popup__save-button_type_profile" type="submit">Сохранить</button>
         </div>
     </form>
@@ -83,6 +83,7 @@
         </footer>
     </div>
 
+    <script src="./scripts/initialcards.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
 

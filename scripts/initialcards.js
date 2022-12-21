@@ -20,7 +20,7 @@ const initialCards = [
         link: 'https://images.unsplash.com/photo-1669854336002-0a2f4721dd5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80'
     },
     {
-        name: '<Берлин, Германия>',
+        name: 'Берлин, Германия',
         link: 'https://images.unsplash.com/photo-1664468313248-625caf334996?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80'
     }
 ];

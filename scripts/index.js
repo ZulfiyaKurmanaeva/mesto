@@ -47,22 +47,20 @@ const createCard = ({ name, link }) => {
 
   return elementsItem;
 }
-// render
+//render elements
 function renderElements({ name, link }) {
   elementsContainer.prepend(createCard({ name, link }));
 }
 initialCards.forEach(renderElements);
 
-//delete element
+//delete elements
 function deleteElement(evt) {
   evt.target.closest('.elements__item').remove();
 }
-
 //likes
 function makeLikeActive(likeButton) {
   likeButton.classList.toggle('elements__like-button_active');
 }
-
 //open picture
 function openBigPicture({ name, link }) {
   bigPicture.src = link;
@@ -83,8 +81,7 @@ pictureCloseButton.addEventListener('click', () => {
   closePopup(popupBigPicture);
 });
 
-
-//open edit profile
+//open edit-profile
 profileEditButton.addEventListener('click', () => {
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
@@ -99,12 +96,12 @@ popupEditProfile.addEventListener('submit', (evt) => {
   closePopup(popupEditProfile);
 })
 
-//open Elements popup
+//open elements popup
 profileAddButton.addEventListener('click', () => {
   openPopup(popupAddElements)
 });
 
-//submit Elements
+//submit elements
 popupAddElements.addEventListener('submit', (evt) => {
   evt.preventDefault()
   const link = linkInput.value;
@@ -113,7 +110,3 @@ popupAddElements.addEventListener('submit', (evt) => {
   closePopup(popupAddElements);
   popupAddElements.reset();
 })
-
-
-
-

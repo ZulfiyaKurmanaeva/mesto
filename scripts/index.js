@@ -1,38 +1,43 @@
 // VARIABLES
-// Close Buttons
+// close Buttons
 const elementCloseButton = document.querySelector('.popup__close-button_type_elements');
 const profileCloseButton = document.querySelector('.popup__close-button_type_profile');
 const pictureCloseButton = document.querySelector('.popup__close-button_type_picture');
 
-//profile
-const popupEditProfile = document.querySelector('.popup_type_edit-profile');
+// open buttons
 const profileEditButton = document.querySelector('.profile__edit-button');
+const pictureAddButton = document.querySelector('.profile__add-button');
+
+//profile
 const inputName = document.querySelector('.popup__input_type_name');
 const inputAbout = document.querySelector('.popup__input_type_about');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 
 //elements
-const popupAddElements = document.querySelector('.popup_type_add-elements');
-const profileAddButton = document.querySelector('.profile__add-button');
-const elementsContainer = document.querySelector('.elements');
-const elementsTemplate = document.querySelector('#elementsTemplate').content.querySelector('.elements__item');
-const titleInput = newItemForm.elements.elementsTitle;
-const linkInput = newItemForm.elements.link;
+const titleInput = document.querySelector('.popup__input_type_elements-title');
+const linkInput = document.querySelector('.popup__input_type_elements-link');
+
+//big picture
 const popupBigPicture = document.querySelector('.popup_type_big-picture');
 const bigPicture = document.querySelector('.popup__big-picture');
 const bigPictureCaption = document.querySelector('.popup__picture-caption');
 
-//forms
+//template
+const elementsContainer = document.querySelector('.elements');
+const elementsTemplate = document.querySelector('#elementsTemplate').content.querySelector('.elements__item');
+
+//popup
 const popupList = document.querySelectorAll('.popup');
 const form = document.querySelector('.popup__form');
-const newItemForm = document.forms.newItemForm;
-const editProfileForm = document.forms.editProfileForm;
 
-const inputsEditForm = Array.from(popupEditProfile.querySelectorAll('.popup__input'));
+const popupEditProfile = document.querySelector('.popup_type_edit-profile');
+const inputsProfileForm = Array.from(popupEditProfile.querySelectorAll('.popup__input'));
+const profileFormSubmitBtn = popupEditProfile.querySelector('.popup__button_type_profile');
 
-
-
+const popupAddElements = document.querySelector('.popup_type_add-elements');
+const inputsElementsForm = Array.from(popupAddElements.querySelectorAll('.popup__input'));
+const elementsFormSubmitBtn = popupAddElements.querySelector('.popup__button_type_element');
 
 //FUNCTIONS
 //popup
@@ -83,7 +88,6 @@ function openBigPicture({ elementsTitle, link }) {
   openPopup(popupBigPicture)
 }
 
-//EVENTS
 //close popup
 elementCloseButton.addEventListener('click', () => {
   closePopup(popupAddElements);
@@ -107,24 +111,24 @@ function closePopupEsc(evt) {
 
 //open edit-profile
 profileEditButton.addEventListener('click', () => {
-  deleteValidationErrors(popupEditProfile, inputsEditForm, validationConfig); //
+  deleteValidationErr(popupEditProfile, inputsProfileForm, validationConfig); //
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
-  toggleButtonState(inputsEditForm, profileEditButton, validationConfig); //
+  toggleButtonState(inputsProfileForm, profileFormSubmitBtn, validationConfig); //
   openPopup(popupEditProfile);
 });
 
-//save profile
+//submit profile info
 popupEditProfile.addEventListener('submit', (evt) => {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileAbout.textContent = inputAbout.value;
   closePopup(popupEditProfile);
-  editProfileForm.reset();
+  inputsProfileForm.reset();
 })
 
 //open elements popup
-profileAddButton.addEventListener('click', () => {
+pictureAddButton.addEventListener('click', () => {
   openPopup(popupAddElements)
 });
 
@@ -132,8 +136,8 @@ profileAddButton.addEventListener('click', () => {
 popupAddElements.addEventListener('submit', (evt) => {
   evt.preventDefault()
   const link = linkInput.value;
-  const name = titleInput.value;
-  renderElements({ name, link });
+  const elementsTitle = titleInput.value;
+  renderElements({ elementsTitle, link });
   closePopup(popupAddElements);
   popupAddElements.reset();
 })

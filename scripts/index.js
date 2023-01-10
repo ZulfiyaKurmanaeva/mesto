@@ -1,8 +1,13 @@
 // VARIABLES
 //popup
+const popupList = document.querySelectorAll('.popup');
+const inputsEditForm = Array.from(formEdit.querySelectorAll('.popup__input'));
 const elementCloseButton = document.querySelector('.popup__close-button_type_elements');
 const profileCloseButton = document.querySelector('.popup__close-button_type_profile');
 const pictureCloseButton = document.querySelector('.popup__close-button_type_picture');
+const newItemForm = document.forms.newItemForm;
+const editProfileForm = document.forms.editProfileForm;
+
 //profile
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
 const profileEditButton = document.querySelector('.profile__edit-button');
@@ -11,15 +16,16 @@ const inputAbout = document.querySelector('.popup__input_type_about');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 //elements
-const popupAddElements = document.querySelector('.popup_type_add-elements'); //elements form
+const popupAddElements = document.querySelector('.popup_type_add-elements');
 const profileAddButton = document.querySelector('.profile__add-button');
 const elementsContainer = document.querySelector('.elements');
 const elementsTemplate = document.querySelector('#elementsTemplate').content.querySelector('.elements__item');
-const titleInput = document.querySelector('.popup__input_type_elements-title');
-const linkInput = document.querySelector('.popup__input_type_elements-link');
+const titleInput = forms.elements.title;
+const linkInput = forms.elements.link;
 const popupBigPicture = document.querySelector('.popup_type_big-picture');
 const bigPicture = document.querySelector('.popup__big-picture');
 const bigPictureCaption = document.querySelector('.popup__picture-caption');
+const form = document.querySelector('.popup__form');
 
 //FUNCTIONS
 //popup
@@ -81,10 +87,22 @@ pictureCloseButton.addEventListener('click', () => {
   closePopup(popupBigPicture);
 });
 
+function closePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    popupList.forEach(popup => {
+      if (popup.classList.contains('popup_opened')) {
+        closePopup(popup)
+      }
+    })
+  }
+}
+
 //open edit-profile
 profileEditButton.addEventListener('click', () => {
+  deleteValidationErrors(popupEditProfile, inputsEditForm, validationConfig); //
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
+  toggleButtonState(inputsEditForm, profileEditButton, validationConfig); //
   openPopup(popupEditProfile);
 });
 

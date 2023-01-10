@@ -1,6 +1,7 @@
 // VARIABLES
 //popup
 const popupList = document.querySelectorAll('.popup');
+const inputsEditForm = Array.from(formEdit.querySelectorAll('.popup__input'));
 const elementCloseButton = document.querySelector('.popup__close-button_type_elements');
 const profileCloseButton = document.querySelector('.popup__close-button_type_profile');
 const pictureCloseButton = document.querySelector('.popup__close-button_type_picture');
@@ -15,7 +16,7 @@ const inputAbout = document.querySelector('.popup__input_type_about');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 //elements
-const popupAddElements = document.querySelector('.popup_type_add-elements'); //elements form
+const popupAddElements = document.querySelector('.popup_type_add-elements');
 const profileAddButton = document.querySelector('.profile__add-button');
 const elementsContainer = document.querySelector('.elements');
 const elementsTemplate = document.querySelector('#elementsTemplate').content.querySelector('.elements__item');
@@ -98,8 +99,10 @@ function closePopupEsc(evt) {
 
 //open edit-profile
 profileEditButton.addEventListener('click', () => {
+  deleteValidationErrors(popupEditProfile, inputsEditForm, validationConfig); //
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
+  toggleButtonState(inputsEditForm, profileEditButton, validationConfig); //
   openPopup(popupEditProfile);
 });
 
@@ -125,22 +128,3 @@ popupAddElements.addEventListener('submit', (evt) => {
   closePopup(popupAddElements);
   popupAddElements.reset();
 })
-
-
-const validationConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  activeButtonClass: 'popup__button_valid',
-  inactiveButtonClass: 'popup__button_invalid',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_visible'
-};
-
-
-function handleSubmit(evt) {
-  evt.preventDefault();
-
-  form.addEventListener('submit', handleSubmit);
-
-  enableValidation(validationConfig);

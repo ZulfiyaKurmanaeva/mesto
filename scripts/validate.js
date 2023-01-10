@@ -1,3 +1,13 @@
+  const validationConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+  };
+  
+
 function showInputError(formElement, inputElement, config) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
 
@@ -22,30 +32,17 @@ function checkInputValidity(formElement, inputElement, config) {
     }
 }
 
-function checkPasswordsEquality(formElement, config) {
-    const passwordInput = formElement.querySelector('#password');
-    const passwordRepeatInput = formElement.querySelector('#password-repeat');
-
-    if (passwordInput.value !== passwordRepeatInput.value) {
-        passwordRepeatInput.setCustomValidity('Passwords are not equal');
-        showInputError(formElement, passwordRepeatInput, config);
-    } else {
-        passwordRepeatInput.setCustomValidity('');
-        hideInputError(formElement, passwordRepeatInput, config);
-    }
-}
-
-function hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => !inputElement.validity.valid);
+function hasInvalidInput (inputList){
+    return inputList.some((inputElement) => {
+        return !inputElement.validity.valid;
+    })
 }
 
 function toggleButtonState(inputList, buttonElement, config) {
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.remove(config.activeButtonClass);
         buttonElement.classList.add(config.inactiveButtonClass);
         buttonElement.disabled = true;
     } else {
-        buttonElement.classList.add(config.activeButtonClass);
         buttonElement.classList.remove(config.inactiveButtonClass);
         buttonElement.disabled = false;
     }
@@ -56,21 +53,13 @@ function setEventListeners(formElement, config) {
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
     toggleButtonState(inputList, buttonElement, config);
-
-    // formElement.addEventListener('input', (evt) => {
-    //   const inputElement = evt.target;
-    //   checkPasswordsEquality(formElement, config);
-    //   checkInputValidity(formElement, inputElement, config);
-    //   toggleButtonState(inputList, buttonElement, config);
-    // })
-
-    inputList.forEach((inputElement) => {
-        inputElement.addEventListener('input', () => {
-            checkPasswordsEquality(formElement, config);
-            checkInputValidity(formElement, inputElement, config);
-            toggleButtonState(inputList, buttonElement, config);
-        })
-    })
+    
+inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', () => {
+        checkInputValidity(formElement, inputElement, config);
+        toggleButtonState(inputList, buttonElement, config);
+    });
+});
 }
 
 function enableValidation({ formSelector, ...restConfig }) {
@@ -81,3 +70,5 @@ function enableValidation({ formSelector, ...restConfig }) {
     })
 
 }
+
+enableValidation(validationConfig);

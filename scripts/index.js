@@ -111,10 +111,8 @@ function closePopupEsc(evt) {
 
 //open edit-profile
 profileEditButton.addEventListener('click', () => {
-  deleteValidationErr(popupEditProfile, inputsProfileForm, validationConfig); //
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
-  toggleButtonState(inputsProfileForm, profileFormSubmitBtn, validationConfig); //
   openPopup(popupEditProfile);
 });
 

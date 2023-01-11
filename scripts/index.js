@@ -43,13 +43,13 @@ const elementsFormSubmitBtn = popupAddElements.querySelector('.popup__button_typ
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
-  document.addEventListener('click', closePopupOverlay);
+  document.addEventListener('mousedown', closePopupOverlay);
 }
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
-  document.removeEventListener('click', closePopupOverlay);
+  document.removeEventListener('mousedown', closePopupOverlay);
 }
 
 const closePopupEsc = (evt) => {

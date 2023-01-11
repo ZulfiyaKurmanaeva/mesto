@@ -99,11 +99,11 @@ pictureCloseButton.addEventListener('click', () => {
   closePopup(popupBigPicture);
 });
 
-function closePopupEsc(evt) {
-  if (evt.key === 'Escape') {
+window.onkeydown = function(evt) {
+  if (evt.keyCode == 27 ) {
     popupList.forEach(popup => {
       if (popup.classList.contains('popup_opened')) {
-        closePopup(popup)
+        closePopup()
       }
     })
   }

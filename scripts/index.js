@@ -29,7 +29,7 @@ const elementsTemplate = document.querySelector('#elementsTemplate').content.que
 
 //popup
 const popupList = document.querySelectorAll('.popup');
-const form = document.querySelector('.popup__form');
+const popupOpened = document.querySelectorAll('.popup_opened');
 
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
 const inputsProfileForm = Array.from(popupEditProfile.querySelectorAll('.popup__input'));
@@ -41,24 +41,12 @@ const elementsFormSubmitBtn = popupAddElements.querySelector('.popup__button_typ
 
 //popup open/close
 const openPopup = (popup) => {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupEsc);
+  popup.classList.add('popup_opened');  
   }
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupEsc);
-  }
-
-const closePopupEsc = (evt) => {
-  if(evt.key === 'Escape'){
-      popupList.forEach(popup => {
-          if(popup.classList.contains('popup_opened')) {
-              closePopup(popup);
-          }
-      })
-  }
-}
+    }
 
 //create Elements
 const createCard = ({ elementsTitle, link }) => {
@@ -80,10 +68,10 @@ const createCard = ({ elementsTitle, link }) => {
 }
 
 //render elements
-function renderElements({ elementsTitle, link }) {
+function renderCard({ elementsTitle, link }) {
   elementsContainer.prepend(createCard({ elementsTitle, link }));
 }
-initialCards.forEach(renderElements);
+initialCards.forEach(renderCard);
 
 //delete elements
 function deleteElement(evt) {
@@ -120,6 +108,23 @@ popupList.forEach((popup) => {
     })
   });
 
+  popupOpened.forEach((popup) => {
+    popup.addEventListener('keydown', (evt) => {
+      if(evt.key === 'Escape'){   
+        closePopup(popup); 
+        } 
+    })
+  }) 
+
+popupList.forEach((popup_opened) => {
+  popup.addEventListener('keydown', (evt) => {
+      if(evt.key === 'Escape'){
+        closePopup(popup);
+            }
+        })
+    }
+  
+
 //open edit-profile
 profileEditButton.addEventListener('click', () => {
   inputName.value = profileName.textContent;
@@ -146,7 +151,7 @@ popupAddElements.addEventListener('submit', (evt) => {
   evt.preventDefault()
   const link = linkInput.value;
   const elementsTitle = titleInput.value;
-  renderElements({ elementsTitle, link });
-  closePopup(popupAddElements);
+  renderCard({ elementsTitle, link });
   evt.target.reset();
+  closePopup(popupAddElements);  
 })

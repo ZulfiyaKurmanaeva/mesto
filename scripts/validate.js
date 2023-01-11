@@ -1,3 +1,4 @@
+//vatiables
 const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
@@ -7,20 +8,22 @@ const validationConfig = {
     errorClass: 'popup__error_visible'
 };
 
+//show/hide error
 function showInputError(formElement, inputElement, config) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(config.inputErrorClass);
     errorElement.classList.add(config.errorClass);
     errorElement.textContent = inputElement.validationMessage;
+    inputElement.classList.add(config.inputErrorClass);
 }
 
 function hideInputError(formElement, inputElement, config) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove(config.inputErrorClass);
     errorElement.classList.remove(config.errorClass);
     errorElement.textContent = '';
+    inputElement.classList.remove(config.inputErrorClass);
 }
 
+//chek inputvalidity
 function checkInputValidity(formElement, inputElement, config) {
     if (inputElement.validity.valid) {
         hideInputError(formElement, inputElement, config);
@@ -35,6 +38,7 @@ function hasInvalidInput(inputList) {
     })
 }
 
+//set button status
 function toggleButtonState(inputList, buttonElement, config) {
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add(config.inactiveButtonClass);
@@ -45,10 +49,13 @@ function toggleButtonState(inputList, buttonElement, config) {
     }
 }
 
+//add listeners to form input fields
 function setEventListeners(formElement, config) {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
+
     toggleButtonState(inputList, buttonElement, config);
+
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
             checkInputValidity(formElement, inputElement, config);
@@ -57,6 +64,7 @@ function setEventListeners(formElement, config) {
     });
 }
 
+//delete validation errors
 function deleteValidationErr(formElement, inputList, config) {
     inputList.forEach((inputElement) => {
         const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
@@ -65,6 +73,7 @@ function deleteValidationErr(formElement, inputList, config) {
     })
 }
 
+//find forms and set listeners
 function enableValidation({ formSelector, ...restConfig }) {
     const formList = Array.from(document.querySelectorAll(formSelector));
     formList.forEach((formElement) => {

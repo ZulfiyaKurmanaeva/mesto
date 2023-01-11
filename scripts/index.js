@@ -44,20 +44,32 @@ const elementsFormSubmitBtn = popupAddElements.querySelector('.popup__button_typ
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
+  document.addEventListener('click', closePopupOverlay);
 }
+
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
+  document.removeEventListener('click', closePopupOverlay);
 }
+
 const closePopupEsc = (evt) => {
   if(evt.key === 'Escape'){
       popupList.forEach(popup => {
           if(popup.classList.contains('popup_opened')) {
-              closePopup(popup)
+              closePopup(popup);
           }
       })
   }
 }
+
+const closePopupOverlay = (evt) => {
+  if (!evt.target === popupList) {
+    closePopup(popup);
+  }
+}
+
+
 
 //create Elements
 const createCard = ({ elementsTitle, link }) => {

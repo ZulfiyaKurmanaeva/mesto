@@ -43,14 +43,12 @@ const elementsFormSubmitBtn = popupAddElements.querySelector('.popup__button_typ
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
-  document.addEventListener('mousedown', closePopupOverlay);
-}
+  }
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
-  document.removeEventListener('mousedown', closePopupOverlay);
-}
+  }
 
 const closePopupEsc = (evt) => {
   if(evt.key === 'Escape'){
@@ -60,16 +58,6 @@ const closePopupEsc = (evt) => {
           }
       })
   }
-}
-
-const closePopupOverlay = (evt) => {
-  if(!evt.target === popupList) {
-    popupList.forEach(popup => {
-      if(popup.classList.contains('popup_opened')) {
-          closePopup(popup);
-      }
-  })
-}
 }
 
 //create Elements
@@ -123,6 +111,14 @@ profileCloseButton.addEventListener('click', () => {
 pictureCloseButton.addEventListener('click', () => {
   closePopup(popupBigPicture);
 });
+
+popupList.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) {
+          closePopup(popup);
+      }
+    })
+  });
 
 //open edit-profile
 profileEditButton.addEventListener('click', () => {

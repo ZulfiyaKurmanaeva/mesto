@@ -99,7 +99,7 @@ pictureCloseButton.addEventListener('click', () => {
   closePopup(popupBigPicture);
 });
 
-$(document).keypress(function(evt) {
+document.addEventListener('keypress', (evt) => {
   if (evt.keyCode == 27 ) {
     popupList.forEach(popup => {
       if (popup.classList.contains('popup_opened')) {

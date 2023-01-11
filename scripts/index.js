@@ -39,7 +39,6 @@ const popupAddElements = document.querySelector('.popup_type_add-elements');
 const inputsElementsForm = Array.from(popupAddElements.querySelectorAll('.popup__input'));
 const elementsFormSubmitBtn = popupAddElements.querySelector('.popup__button_type_element');
 
-//FUNCTIONS
 //popup open/close
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
@@ -64,14 +63,10 @@ const closePopupEsc = (evt) => {
 }
 
 const closePopupOverlay = (evt) => {
-  if (!evt.target === popupList) {
-    popupList.forEach(popup => {
-      if(popup.classList.contains('popup_opened')) {
-          closePopup(popup);
+  if(!evt.target.classList.contains('popup_opened')) {
+       closePopup(popup);
       }
-  })
-}
-}
+  }
 
 //create Elements
 const createCard = ({ elementsTitle, link }) => {

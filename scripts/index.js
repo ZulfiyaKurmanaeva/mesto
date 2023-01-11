@@ -43,20 +43,22 @@ const elementsFormSubmitBtn = popupAddElements.querySelector('.popup__button_typ
 //popup
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
 }
+
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
 }
-function closePopupEsc (popup) {
-  document.addEventListener('keydown', (evt) => {
+
+function closePopupEsc (evt) {
   if(evt.key === 'Escape'){
       popupList.forEach(popup => {
-          if(popup.classList.contains('popup_active')) {
+          if(popup.classList.contains('popup_opened')) {
               closePopup(popup)
           }
       })
   }
-})
 }
 
 //create Elements

@@ -47,7 +47,8 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
-function closePopupEsc (evt) {
+function closePopupEsc (popup) {
+  document.addEventListener('keydown', (evt) => {
   if(evt.key === 'Escape'){
       popupList.forEach(popup => {
           if(popup.classList.contains('popup_active')) {
@@ -55,6 +56,7 @@ function closePopupEsc (evt) {
           }
       })
   }
+})
 }
 
 //create Elements

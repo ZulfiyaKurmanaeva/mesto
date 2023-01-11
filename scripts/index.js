@@ -40,18 +40,16 @@ const inputsElementsForm = Array.from(popupAddElements.querySelectorAll('.popup_
 const elementsFormSubmitBtn = popupAddElements.querySelector('.popup__button_type_element');
 
 //FUNCTIONS
-//popup
-function openPopup(popup) {
+//popup open/close
+const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
 }
-
-function closePopup(popup) {
+const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
 }
-
-function closePopupEsc (evt) {
+const closePopupEsc = (evt) => {
   if(evt.key === 'Escape'){
       popupList.forEach(popup => {
           if(popup.classList.contains('popup_opened')) {

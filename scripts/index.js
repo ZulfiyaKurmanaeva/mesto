@@ -47,6 +47,16 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
+function closePopupEsc (evt) {
+  if(evt.key === 'Escape'){
+      popupList.forEach(popup => {
+          if(popup.classList.contains('popup_active')) {
+              closePopup(popup)
+          }
+      })
+  }
+}
+
 //create Elements
 const createCard = ({ elementsTitle, link }) => {
   const elementsItem = elementsTemplate.cloneNode(true);
@@ -98,16 +108,6 @@ profileCloseButton.addEventListener('click', () => {
 pictureCloseButton.addEventListener('click', () => {
   closePopup(popupBigPicture);
 });
-
-document.addEventListener('keypress', (evt) => {
-  if (evt.key === 'Escape') {
-    popupList.forEach(popup => {
-      if (popup.classList.contains('popup_opened')) {
-        closePopup(popup)
-      }
-    })
-  }
-})
 
 //open edit-profile
 profileEditButton.addEventListener('click', () => {

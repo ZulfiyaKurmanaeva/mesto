@@ -65,11 +65,13 @@ const closePopupEsc = (evt) => {
 
 const closePopupOverlay = (evt) => {
   if (!evt.target === popupList) {
-    closePopup(popup);
-  }
+    popupList.forEach(popup => {
+      if(popup.classList.contains('popup_opened')) {
+          closePopup(popup);
+      }
+  })
 }
-
-
+}
 
 //create Elements
 const createCard = ({ elementsTitle, link }) => {

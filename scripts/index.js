@@ -124,7 +124,7 @@ popupEditProfile.addEventListener('submit', (evt) => {
   profileName.textContent = inputName.value;
   profileAbout.textContent = inputAbout.value;
   closePopup(popupEditProfile);
-  inputsProfileForm.reset();
+  evt.target.reset();
 })
 
 //open elements popup
@@ -139,5 +139,5 @@ popupAddElements.addEventListener('submit', (evt) => {
   const elementsTitle = titleInput.value;
   renderElements({ elementsTitle, link });
   closePopup(popupAddElements);
-  popupAddElements.reset();
+  evt.target.reset();
 })

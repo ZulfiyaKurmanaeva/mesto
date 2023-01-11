@@ -100,7 +100,7 @@ pictureCloseButton.addEventListener('click', () => {
 });
 
 document.addEventListener('keypress', (evt) => {
-  if (evt.keyCode == 27 ) {
+  if (evt.key === 'Escape') {
     popupList.forEach(popup => {
       if (popup.classList.contains('popup_opened')) {
         closePopup(popup)

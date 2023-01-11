@@ -99,15 +99,15 @@ pictureCloseButton.addEventListener('click', () => {
   closePopup(popupBigPicture);
 });
 
-window.onkeydown = function(evt) {
+$(document).keypress(function(evt) {
   if (evt.keyCode == 27 ) {
     popupList.forEach(popup => {
       if (popup.classList.contains('popup_opened')) {
-        closePopup()
+        closePopup(popup)
       }
     })
   }
-}
+})
 
 //open edit-profile
 profileEditButton.addEventListener('click', () => {
